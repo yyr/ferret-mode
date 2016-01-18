@@ -4,7 +4,7 @@
 
 ;; Author: Mark A. Verschell <verschell@neptune.gsfc.nasa.gov>
 ;; Maintainer: Mark A. Verschell <verschell@neptune.gsfc.nasa.gov>
-;; Version 0.03.0 (February 2, 2000)
+;; Version 0.90 (2016-01-19)
 ;; Keywords: languages
 
 ;; Ferret.el is free software; you can redistribute it and/or modify it under
@@ -61,7 +61,7 @@
 
 ;;; Code:
 
-(defconst ferret-mode-version "version 0.03.0")
+(defconst ferret-mode-version "version 0.90")
 
 (defgroup ferret nil
   "Ferret mode for Emacs"
@@ -219,10 +219,7 @@
          ))
   "Default expressions to highlight in Ferret mode.")
 
-;; -------------------------------------------------------------------------------
 ;;;###autoload
-(require 'derived)
-
 (define-derived-mode ferret-mode text-mode "Ferret"
   "Major mode for editing ferret .jnl files.
 Special commands:
