@@ -22,7 +22,7 @@
 ;; more details.
 
 ;; Information about "Ferret", a graphical analysis tool for gridded data, can
-;; be found at "http://ferret.wrc.noaa.gov/Ferret/";
+;; be found at "http://ferret.pmel.noaa.gov/Ferret/";
 
 ;; Documentation
 ;; -------------
@@ -57,44 +57,7 @@
 ;;            Fixed problem with 0.02.03 that broke comments
 ;;            Files highlighted for USE and SET DATA (except with qualifiers)
 ;;            Removed ca as abbreviation for cancel
-;;
-;; I will take (friendly-worded) suggestions for improvements. Obviously, if I
-;; get no comments, then I will only update this as I find it useful.
 
-;; Usage
-;; -----
-;; - You need a local directory to store the ferret.el file, I call mine Emacs,
-;;   so in the following block replace the /d9/verschell/Emacs with your local
-;;   directory
-;; - Place the ferret.el file in this directory
-;; - Compile the ferret.el file
-;;     Enter emacs while in the ferret.el directory
-;;     ESC x byte-compile-file RETURN ferret.el RETURN
-;; - This gives you ferret.elc
-;; - Make the following modifications to your .emacs file
-;;
-;; <<<CUT HERE AND REMOVE BEGINNING ;; ON EACH LINE>>>
-;; ;;; Add local function directory to emacs search path
-;; (setq load-path (cons "/d9/verschell/Emacs" load-path))
-;;
-;; ;;; Add automatic ferret-mode for .jnl suffix
-;; (setq auto-mode-alist (cons '("\.jnl$" . ferret-mode) auto-mode-alist))
-;;
-;; ;;; Load Ferret major-mode (modified text mode)
-;; (load "ferret")
-;;
-;; ;;; Font lock mode
-;; (cond ((fboundp 'global-font-lock-mode)
-;;             ;; Turn on font-lock in all modes that support it
-;;             (global-font-lock-mode t)
-;;             ;; Maximum colors
-;;             (setq font-lock-maximum-decoration t)))
-;; <<<CUT HERE>>>
-;;
-;; - exit emacs
-;; - the next time you edit a ferret file, you should get lots of pretty colors
-
-;; Bugs to verschell@neptune.gsfc.nasa.gov
 
 ;;; Code:
 
@@ -256,7 +219,7 @@
          ))
   "Default expressions to highlight in Ferret mode.")
 
--------------------------------------------------------------------------------
+;; -------------------------------------------------------------------------------
 ;;;###autoload
 (require 'derived)
 
@@ -272,6 +235,9 @@ Special commands:
   (modify-syntax-entry ?. "w")
   (set (make-local-variable 'font-lock-defaults)
        '(ferret-font-lock-keywords nil t)))
+
+;;;###autoload
+(add-to-list 'auto-mode-alist (cons (purecopy "\\.jnl\\'") 'ferret-mode))
 
 (provide 'ferret)
 
