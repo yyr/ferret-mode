@@ -4,7 +4,7 @@
 
 ;; Author: Mark A. Verschell <verschell@neptune.gsfc.nasa.gov>
 ;; Maintainer: Mark A. Verschell <verschell@neptune.gsfc.nasa.gov>
-;; Version 0.90 (2016-01-19)
+;; Version: 0.90
 ;; Keywords: languages
 
 ;; Ferret.el is free software; you can redistribute it and/or modify it under
@@ -75,6 +75,8 @@
 ;; font-lock-string-face         - STRINGS
 ;; font-lock-type-face           - QUALIFIERS
 ;; font-lock-variable-name-face
+
+(defvar ferret-font-lock-keywords)
 
 (let ((comment-chars "!")
       (ferret-keywords
