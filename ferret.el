@@ -76,6 +76,8 @@
 ;; font-lock-type-face           - QUALIFIERS
 ;; font-lock-variable-name-face
 
+(defvar ferret-font-lock-keywords)
+
 (let ((comment-chars "!")
       (ferret-keywords
                                         ;      ("alias" "animate" "axis" "cancel" "commands" "contour" "data_set"
